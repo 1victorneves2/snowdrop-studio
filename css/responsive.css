@@ -1,0 +1,167 @@
+/* ── RESPONSIVE ── */
+
+/* Hero + grids collapse */
+@media (max-width: 920px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    order: 2;
+  }
+
+  .hero-art {
+    order: 1;
+  }
+
+  .sd-bloom {
+    max-width: 260px;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-tagline-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-block:not(:last-child)::after {
+    top: auto; bottom: 0;
+    left: 18%; right: 18%;
+    width: auto; height: 1px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    max-width: 520px;
+  }
+
+  .contact-aside {
+    text-align: center;
+  }
+
+  .founder {
+    justify-content: center;
+  }
+
+  .founder-quote {
+    border-left: none;
+    border-top: 1px solid var(--color-frost);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .section-process {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .process-header {
+    position: static;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #nav {
+    padding: 1rem 1.5rem;
+  }
+
+  #nav.scrolled {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .divider {
+    margin: 0 1.5rem;
+  }
+
+  .stats-strip {
+    padding: 1.75rem 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .section-services,
+  .section-portfolio,
+  .section-process,
+  .section-why,
+  .section-contact {
+    padding: 4rem 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-block {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 7rem 1.5rem 5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info {
+    gap: 2rem;
+  }
+
+  .site-footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-tagline {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 420px) {
+  .stat-num {
+    font-size: 30px;
+  }
+
+  .stats-strip {
+    gap: 1.25rem;
+  }
+}

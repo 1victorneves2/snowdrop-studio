@@ -1,0 +1,56 @@
+/* ── SNOWDROP DESIGN TOKENS ── */
+:root {
+  /* Palette */
+  --color-night:   #1A2E3B;
+  --color-ice:     #3A6B8A;
+  --color-frost:   #7FB5D4;
+  --color-petal:   #B8D4E8;
+  --color-snow:    #E8F0F7;
+  --color-white:   #F7F9FB;
+  --color-muted:   #8FA8B8;
+  --color-border:  rgba(184, 212, 232, 0.12);
+  --color-glass:   rgba(184, 212, 232, 0.06);
+  --color-deep:    #111e27;  /* darker panel — below night */
+  --color-deeper:  #0d1820;  /* deepest — marquee / footer accents */
+
+  /* Glow (ice, never neon) */
+  --glow-frost:    rgba(127, 181, 212, 0.30);
+  --glow-soft:     rgba(127, 181, 212, 0.14);
+
+  /* Status */
+  --color-prod:    #5DCAA5;
+  --color-mvp:     #7FB5D4;
+  --color-dev:     #B8D4E8;
+
+  /* Typography */
+  --font-display:  'Cormorant Garamond', Georgia, serif;
+  --font-body:     'DM Sans', system-ui, sans-serif;
+
+  /* Type scale */
+  --text-xs:   10px;
+  --text-sm:   12px;
+  --text-base: 14px;
+  --text-md:   16px;
+  --text-lg:   22px;
+  --text-xl:   clamp(28px, 4vw, 40px);
+  --text-2xl:  clamp(32px, 5vw, 52px);
+  --text-hero: clamp(52px, 8vw, 88px);
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-mid:  0.3s ease;
+  --transition-slow: 0.6s ease;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

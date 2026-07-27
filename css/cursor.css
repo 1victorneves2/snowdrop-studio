@@ -1,0 +1,69 @@
+/* ── CUSTOM CURSOR (desktop, non-touch) ── */
+/* Hidden by default; cursor.js adds .cursor-enabled to <html> on capable devices */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-petal);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, width 0.25s var(--ease-out), height 0.25s var(--ease-out), background 0.25s ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(184, 212, 232, 0.5);
+  background: transparent;
+  transform: translate(-50%, -50%) scale(0.35);
+  transition: opacity 0.3s ease, transform 0.22s var(--ease-out), border-color 0.25s ease, background 0.25s ease;
+}
+
+/* visible once enabled */
+.cursor-enabled .cursor-dot,
+.cursor-enabled .cursor-ring {
+  opacity: 1;
+}
+
+/* hide native cursor on interactive surfaces when custom cursor is on */
+.cursor-enabled,
+.cursor-enabled a,
+.cursor-enabled button,
+.cursor-enabled [data-cursor],
+.cursor-enabled input,
+.cursor-enabled textarea {
+  cursor: none;
+}
+
+/* hover/active state — ring expands, dot recedes */
+.cursor-ring.is-active {
+  transform: translate(-50%, -50%) scale(1);
+  border-color: var(--color-frost);
+  background: rgba(127, 181, 212, 0.05);
+}
+
+.cursor-dot.is-active {
+  width: 4px;
+  height: 4px;
+  background: var(--color-frost);
+}
+
+/* on press */
+.cursor-ring.is-down {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring { display: none; }
+}

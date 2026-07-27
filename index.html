@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Snowdrop Studio — Desenvolvimento web, produtos SaaS e identidades digitais construídos com precisão. Build · Ship · Grow." />
+  <meta name="author" content="Victor Hugo Alves Neves" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Snowdrop Studio" />
+  <meta property="og:description" content="Construímos sistemas web, produtos SaaS e identidades digitais com propósito." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://snowdrop.io" />
+
+  <title>Snowdrop Studio — Build · Ship · Grow</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/cursor.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+  <link rel="stylesheet" href="css/marquee.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <template id="__bundler_thumbnail" data-bg-color="#1A2E3B">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#1A2E3B"/>
+      <g stroke="#7FB5D4" fill="none" stroke-width="3" stroke-linecap="round">
+        <path d="M600 560 L600 320"/>
+        <path d="M642 305 Q672 296 694 282 Q674 304 646 312 Z" fill="#7FB5D4" fill-opacity="0.16"/>
+        <ellipse cx="606" cy="370" rx="26" ry="72" transform="rotate(-16 606 330)" stroke="#E8F0F7" fill="#F7F9FB" fill-opacity="0.10"/>
+        <ellipse cx="606" cy="370" rx="26" ry="72" transform="rotate(16 606 330)" stroke="#E8F0F7" fill="#F7F9FB" fill-opacity="0.10"/>
+        <ellipse cx="606" cy="374" rx="28" ry="80" stroke="#F7F9FB" fill="#F7F9FB" fill-opacity="0.16"/>
+      </g>
+      <g fill="#B8D4E8">
+        <circle cx="520" cy="300" r="5" opacity="0.5"/>
+        <circle cx="690" cy="250" r="4" opacity="0.4"/>
+        <circle cx="500" cy="380" r="3" opacity="0.35"/>
+        <circle cx="720" cy="340" r="5" opacity="0.45"/>
+        <circle cx="470" cy="240" r="3" opacity="0.3"/>
+      </g>
+      <text x="600" y="660" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="64" fill="#F7F9FB">Snowdrop</text>
+      <text x="600" y="710" text-anchor="middle" font-family="sans-serif" font-size="20" letter-spacing="8" fill="#7FB5D4">BUILD · SHIP · GROW</text>
+    </svg>
+  </template>
+
+  <!-- ── SCROLL PROGRESS BAR ── -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ── CUSTOM CURSOR (desktop, non-touch) ── -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo" data-cursor>Snow<span>drop</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicos" data-cursor>Serviços</a></li>
+      <li><a href="#portfolio" data-cursor>Portfólio</a></li>
+      <li><a href="#processo" data-cursor>Processo</a></li>
+      <li><a href="#contato" data-cursor>Contato</a></li>
+    </ul>
+    <a href="#contato" class="nav-cta" data-cursor>Falar com a gente</a>
+    <button class="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#processo">Processo</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero" data-screen-label="Hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Snowdrop Studio · Manaus, BR</p>
+
+        <h1 class="hero-headline">
+          We <em><span id="typewriter">build</span></em><br>with purpose.
+        </h1>
+
+        <p class="hero-sub">
+          Sistemas web, produtos SaaS e identidades digitais que nascem precisos — e crescem sem perder o foco.
+        </p>
+
+        <div class="hero-tagline">
+          <span class="hero-tagline-text">Build · Ship · Grow</span>
+          <span class="hero-tagline-line" id="taglineLine"></span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn-primary" data-cursor>Ver projetos</a>
+          <a href="#contato" class="btn-ghost" data-cursor>Iniciar conversa</a>
+        </div>
+      </div>
+
+      <!-- Interactive snowdrop bloom -->
+      <div class="hero-art" aria-hidden="true">
+        <svg class="sd-bloom" viewBox="0 0 400 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="sd-field">
+        <circle class="sd-dot" cx="160.4" cy="164.8" r="1.15" fill="#B8D4E8" style="--o:0.19;--d:0.89s"/>
+        <circle class="sd-dot" cx="213.8" cy="262.4" r="2.08" fill="#3A6B8A" style="--o:0.23;--d:0.24s"/>
+        <circle class="sd-dot" cx="294.4" cy="131.8" r="1.15" fill="#7FB5D4" style="--o:0.28;--d:1.34s"/>
+        <circle class="sd-dot" cx="223.0" cy="258.4" r="1.87" fill="#B8D4E8" style="--o:0.24;--d:0.21s"/>
+        <circle class="sd-dot" cx="205.6" cy="139.0" r="0.96" fill="#7FB5D4" style="--o:0.32;--d:0.78s"/>
+        <circle class="sd-dot" cx="212.0" cy="123.3" r="1.43" fill="#B8D4E8" style="--o:0.31;--d:0.39s"/>
+        <circle class="sd-dot" cx="203.0" cy="156.1" r="2.13" fill="#B8D4E8" style="--o:0.34;--d:1.05s"/>
+        <circle class="sd-dot" cx="263.5" cy="287.8" r="0.94" fill="#3A6B8A" style="--o:0.23;--d:0.84s"/>
+        <circle class="sd-dot" cx="190.3" cy="202.1" r="2.27" fill="#7FB5D4" style="--o:0.46;--d:0.88s"/>
+        <circle class="sd-dot" cx="180.7" cy="225.4" r="1.10" fill="#E8F0F7" style="--o:0.25;--d:0.22s"/>
+        <circle class="sd-dot" cx="319.8" cy="173.7" r="0.99" fill="#B8D4E8" style="--o:0.36;--d:1.17s"/>
+        <circle class="sd-dot" cx="303.8" cy="139.8" r="2.19" fill="#B8D4E8" style="--o:0.28;--d:0.58s"/>
+        <circle class="sd-dot" cx="248.9" cy="289.9" r="2.03" fill="#E8F0F7" style="--o:0.39;--d:0.46s"/>
+        <circle class="sd-dot" cx="271.9" cy="149.9" r="2.18" fill="#7FB5D4" style="--o:0.41;--d:1.28s"/>
+        <circle class="sd-dot" cx="273.9" cy="149.9" r="1.12" fill="#3A6B8A" style="--o:0.28;--d:0.94s"/>
+        <circle class="sd-dot" cx="289.6" cy="119.0" r="1.28" fill="#B8D4E8" style="--o:0.27;--d:0.66s"/>
+        <circle class="sd-dot" cx="162.8" cy="169.0" r="2.26" fill="#3A6B8A" style="--o:0.43;--d:0.34s"/>
+        <circle class="sd-dot" cx="198.7" cy="252.9" r="2.04" fill="#E8F0F7" style="--o:0.35;--d:1.09s"/>
+        <circle class="sd-dot" cx="240.3" cy="110.4" r="2.28" fill="#E8F0F7" style="--o:0.40;--d:0.28s"/>
+        <circle class="sd-dot" cx="273.3" cy="248.4" r="2.12" fill="#7FB5D4" style="--o:0.35;--d:0.81s"/>
+        <circle class="sd-dot" cx="309.1" cy="150.3" r="1.40" fill="#E8F0F7" style="--o:0.33;--d:0.60s"/>
+        <circle class="sd-dot" cx="171.0" cy="189.0" r="1.39" fill="#E8F0F7" style="--o:0.45;--d:0.80s"/>
+        <circle class="sd-dot" cx="266.8" cy="216.4" r="1.55" fill="#7FB5D4" style="--o:0.17;--d:1.07s"/>
+        <circle class="sd-dot" cx="264.1" cy="199.5" r="1.87" fill="#B8D4E8" style="--o:0.16;--d:1.89s"/>
+        <circle class="sd-dot" cx="226.0" cy="164.0" r="1.31" fill="#7FB5D4" style="--o:0.35;--d:1.78s"/>
+        <circle class="sd-dot" cx="239.4" cy="170.8" r="0.89" fill="#B8D4E8" style="--o:0.23;--d:1.76s"/>
+        <circle class="sd-dot" cx="210.9" cy="161.0" r="1.23" fill="#B8D4E8" style="--o:0.34;--d:1.20s"/>
+        <circle class="sd-dot" cx="227.6" cy="146.9" r="1.59" fill="#B8D4E8" style="--o:0.26;--d:1.15s"/>
+        <circle class="sd-dot" cx="202.2" cy="118.4" r="0.89" fill="#B8D4E8" style="--o:0.32;--d:1.66s"/>
+        <circle class="sd-dot" cx="184.7" cy="122.9" r="1.19" fill="#B8D4E8" style="--o:0.22;--d:1.69s"/>
+        <circle class="sd-dot" cx="202.0" cy="89.5" r="0.74" fill="#B8D4E8" style="--o:0.16;--d:0.78s"/>
+        <circle class="sd-dot" cx="153.8" cy="94.3" r="1.03" fill="#E8F0F7" style="--o:0.18;--d:1.94s"/>
+        <circle class="sd-dot" cx="184.7" cy="93.6" r="0.94" fill="#B8D4E8" style="--o:0.15;--d:1.93s"/>
+        <circle class="sd-dot" cx="179.5" cy="73.2" r="1.15" fill="#E8F0F7" style="--o:0.19;--d:1.73s"/>
+        <circle class="sd-dot" cx="147.9" cy="42.6" r="0.87" fill="#7FB5D4" style="--o:0.28;--d:1.26s"/>
+        <circle class="sd-dot" cx="154.8" cy="51.4" r="0.63" fill="#E8F0F7" style="--o:0.26;--d:1.26s"/>
+          </g>
+
+          <!-- Flower -->
+          <g class="sd-flower">
+            <!-- base leaves -->
+            <path class="sd-stroke" d="M250 548 C222 478 216 372 234 306" stroke="#3A6B8A" stroke-width="1.4" stroke-linecap="round"/>
+            <path class="sd-stroke" d="M250 548 C280 478 287 380 266 312" stroke="#3A6B8A" stroke-width="1.4" stroke-linecap="round"/>
+            <!-- main stem -->
+            <path class="sd-stroke" d="M250 548 L250 158" stroke="#7FB5D4" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- spathe / bract -->
+            <path class="sd-petal-fill" d="M250 160 Q278 150 300 136 Q280 158 252 166 Z" fill="#7FB5D4" fill-opacity="0.16" stroke="#7FB5D4" stroke-width="1.1"/>
+            <!-- pedicel (hanging stalk) -->
+            <path class="sd-stroke" d="M292 140 C297 158 282 170 263 163" stroke="#7FB5D4" stroke-width="1.3" stroke-linecap="round"/>
+            <!-- ovary knob -->
+            <ellipse class="sd-petal-fill" cx="258" cy="164" rx="6.5" ry="5" fill="#B8D4E8" fill-opacity="0.55" stroke="#B8D4E8" stroke-width="1"/>
+            <!-- outer petals (hanging bell) -->
+            <ellipse class="sd-petal sd-petal--side" cx="256" cy="206" rx="12.5" ry="34" transform="rotate(-16 256 168)" fill="#F7F9FB" fill-opacity="0.10" stroke="#E8F0F7" stroke-width="1.1"/>
+            <ellipse class="sd-petal sd-petal--side" cx="256" cy="206" rx="12.5" ry="34" transform="rotate(16 256 168)" fill="#F7F9FB" fill-opacity="0.10" stroke="#E8F0F7" stroke-width="1.1"/>
+            <ellipse class="sd-petal sd-petal--front" cx="256" cy="208" rx="13.5" ry="38" fill="#F7F9FB" fill-opacity="0.16" stroke="#F7F9FB" stroke-width="1.2"/>
+            <!-- inner segment -->
+            <ellipse class="sd-petal-fill" cx="256" cy="200" rx="6.5" ry="20" fill="#7FB5D4" fill-opacity="0.20" stroke="#7FB5D4" stroke-width="0.9"/>
+            <path class="sd-stroke" d="M250 210 L256 218 L262 210" stroke="#7FB5D4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── STATS STRIP ── -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Produtos ativos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">SaaS</div>
+      <div class="stat-label">Modelo de negócio</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Full</div>
+      <div class="stat-label">Stack coverage</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Escalabilidade</div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section id="servicos" class="section-services" data-screen-label="Serviços">
+    <div class="section-header" data-reveal>
+      <p class="eyebrow">O que fazemos</p>
+      <h2 class="section-title">Construímos o que<br>o seu negócio <em>precisa crescer.</em></h2>
+      <p class="section-body">Da ideia ao deploy. Desenvolvimento web, produtos SaaS e presença digital com identidade real.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card" data-reveal data-cursor>
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect x="4" y="8" width="28" height="20" rx="2" stroke="#7FB5D4" stroke-width="1.2"/>
+          <line x1="4" y1="14" x2="32" y2="14" stroke="#7FB5D4" stroke-width="1.2"/>
+          <circle cx="8" cy="11" r="1.2" fill="#7FB5D4"/>
+          <circle cx="12" cy="11" r="1.2" fill="#7FB5D4" opacity="0.5"/>
+          <circle cx="16" cy="11" r="1.2" fill="#7FB5D4" opacity="0.3"/>
+          <path d="M10 20 L14 24 L26 18" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-name">Desenvolvimento Web</h3>
+        <p class="service-desc">Aplicações robustas com Node.js, Next.js e APIs que aguentam crescer. Do MVP à produção.</p>
+        <div class="tag-list">
+          <span class="tag">Next.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-reveal data-cursor>
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect x="6" y="4" width="24" height="28" rx="2" stroke="#7FB5D4" stroke-width="1.2"/>
+          <line x1="10" y1="12" x2="26" y2="12" stroke="#7FB5D4" stroke-width="1"/>
+          <line x1="10" y1="17" x2="22" y2="17" stroke="#7FB5D4" stroke-width="1" opacity="0.5"/>
+          <line x1="10" y1="22" x2="20" y2="22" stroke="#7FB5D4" stroke-width="1" opacity="0.3"/>
+          <circle cx="27" cy="27" r="5" fill="#1A2E3B" stroke="#7FB5D4" stroke-width="1.2"/>
+          <line x1="27" y1="24.5" x2="27" y2="27" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="27" cy="28.5" r="0.7" fill="#7FB5D4"/>
+        </svg>
+        <h3 class="service-name">Produtos SaaS</h3>
+        <p class="service-desc">Ideação, arquitetura e desenvolvimento de micro-SaaS com modelos de negócio sustentáveis.</p>
+        <div class="tag-list">
+          <span class="tag">Prisma</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">WhatsApp API</span>
+          <span class="tag">IA</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-reveal data-cursor>
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="28" height="28" rx="3" stroke="#7FB5D4" stroke-width="1.2"/>
+          <circle cx="18" cy="16" r="5" stroke="#7FB5D4" stroke-width="1.2"/>
+          <path d="M10 28 C10 23 26 23 26 28" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-name">Web Design</h3>
+        <p class="service-desc">Identidades visuais e interfaces que comunicam antes de falar. Design com intenção, não decoração.</p>
+        <div class="tag-list">
+          <span class="tag">UI/UX</span>
+          <span class="tag">Branding</span>
+          <span class="tag">TailwindCSS</span>
+          <span class="tag">Figma</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-reveal data-cursor>
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <path d="M6 26 L12 18 L18 22 L24 12 L30 16" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="18" r="2" fill="#7FB5D4" opacity="0.6"/>
+          <circle cx="18" cy="22" r="2" fill="#7FB5D4" opacity="0.6"/>
+          <circle cx="24" cy="12" r="2" fill="#7FB5D4" opacity="0.6"/>
+        </svg>
+        <h3 class="service-name">Marketing Digital</h3>
+        <p class="service-desc">Estratégia de conteúdo, automação e presença online que converte — com dados, não achismo.</p>
+        <div class="tag-list">
+          <span class="tag">SEO</span>
+          <span class="tag">Automação</span>
+          <span class="tag">Analytics</span>
+          <span class="tag">Funil</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── WHY SNOWDROP ── -->
+  <section id="diferenciais" class="section-why" data-screen-label="Por que a Snowdrop">
+    <div class="section-header section-header--center" data-reveal>
+      <p class="eyebrow">Por que a Snowdrop</p>
+      <h2 class="section-title">Precisão não é<br><em>um diferencial. É a base.</em></h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-block" data-reveal data-cursor>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="14" stroke="#7FB5D4" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="7" stroke="#7FB5D4" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="1.6" fill="#B8D4E8"/>
+          <line x1="20" y1="2" x2="20" y2="9" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="20" y1="31" x2="20" y2="38" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="why-num" data-counter data-target="100" data-suffix="%">0%</div>
+        <h3 class="why-label">Entrega com propósito</h3>
+        <p class="why-desc">Cada linha de código tem uma razão de existir. Nada é acidental.</p>
+      </div>
+
+      <div class="why-block" data-reveal data-cursor>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="21" r="14" stroke="#7FB5D4" stroke-width="1.2"/>
+          <path d="M20 13 L20 21 L26 25" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="14" y1="4" x2="26" y2="4" stroke="#7FB5D4" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="why-num" data-counter data-target="24" data-prefix="&lt;" data-suffix="h">&lt;0h</div>
+        <h3 class="why-label">Resposta em&nbsp;&lt;&nbsp;24h</h3>
+        <p class="why-desc">Do primeiro contato ao kickoff sem burocracia. Tempo respeitado.</p>
+      </div>
+
+      <div class="why-block" data-reveal data-cursor>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 5 L33 12 L20 19 L7 12 Z" stroke="#7FB5D4" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M7 20 L20 27 L33 20" stroke="#7FB5D4" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M7 28 L20 35 L33 28" stroke="#7FB5D4" stroke-width="1.2" stroke-linejoin="round" opacity="0.55"/>
+        </svg>
+        <div class="why-num" data-counter data-target="3" data-suffix="+">0+</div>
+        <h3 class="why-label">Código que escala</h3>
+        <p class="why-desc">Arquitetura pensada para crescer com o negócio, não para refazer depois.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── PORTFOLIO ── -->
+  <section id="portfolio" class="section-portfolio" data-screen-label="Portfólio">
+    <div class="section-header" data-reveal>
+      <p class="eyebrow">Portfólio</p>
+      <h2 class="section-title">Projetos que<br><em>já estão no mundo.</em></h2>
+      <p class="section-body">Cada projeto nasce de um problema real. Aqui estão os que já chegaram em produção.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <article class="project-card" data-reveal data-cursor>
+        <div class="project-thumb project-thumb--dev">
+          <svg class="project-art" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <path d="M28 38 H92 A8 8 0 0 1 100 46 V74 A8 8 0 0 1 92 82 H58 L44 94 V82 H28 A8 8 0 0 1 20 74 V46 A8 8 0 0 1 28 38 Z" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="60" cy="60" r="4" fill="currentColor"/>
+            <path d="M48 60 A12 12 0 0 1 72 60" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+            <path d="M42 60 A18 18 0 0 1 78 60" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+            <circle cx="40" cy="48" r="1.6" fill="currentColor"/>
+            <circle cx="80" cy="48" r="1.6" fill="currentColor"/>
+            <line x1="40" y1="48" x2="60" y2="56" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="80" y1="48" x2="60" y2="56" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <span class="project-thumb-label">FluxAI</span>
+          <div class="project-overlay"><span class="project-overlay-btn">Ver detalhes →</span></div>
+        </div>
+        <div class="project-content">
+          <p class="project-status status--dev">● Em desenvolvimento</p>
+          <h3 class="project-name">Atendimento WhatsApp + IA</h3>
+          <p class="project-desc">SaaS de atendimento automatizado via WhatsApp com inteligência artificial. Multi-tenant, com dashboard de gestão de conversas.</p>
+          <div class="tag-list">
+            <span class="tag">Node.js</span>
+            <span class="tag">WhatsApp API</span>
+            <span class="tag">IA</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal data-cursor>
+        <div class="project-thumb project-thumb--mvp">
+          <svg class="project-art" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <circle cx="30" cy="60" r="7" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="60" cy="38" r="7" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="60" cy="82" r="7" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="90" cy="60" r="7" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M37 60 H53" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M65 43 L83 56" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M65 77 L83 64" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M36 56 L54 41" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+            <path d="M36 64 L54 79" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+            <circle cx="60" cy="38" r="2" fill="currentColor"/>
+            <circle cx="90" cy="60" r="2" fill="currentColor"/>
+          </svg>
+          <span class="project-thumb-label">RHFlow</span>
+          <div class="project-overlay"><span class="project-overlay-btn">Ver detalhes →</span></div>
+        </div>
+        <div class="project-content">
+          <p class="project-status status--mvp">● MVP concluído</p>
+          <h3 class="project-name">RHFlow</h3>
+          <p class="project-desc">Plataforma micro-SaaS de recrutamento. Gestão de vagas, candidatos e pipeline de seleção. MVP entregue e validado.</p>
+          <div class="tag-list">
+            <span class="tag">Next.js</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal data-cursor>
+        <div class="project-thumb project-thumb--prod">
+          <svg class="project-art" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <path d="M26 84 C40 84 44 44 60 44 C76 44 80 70 94 70" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="1 5"/>
+            <circle cx="26" cy="84" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M94 64 C97 64 99 66 99 69.5 C99 73 94 78 94 78 C94 78 89 73 89 69.5 C89 66 91 64 94 64 Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="94" cy="69.5" r="1.6" fill="currentColor"/>
+            <circle cx="60" cy="44" r="2.4" fill="currentColor"/>
+            <circle cx="44" cy="62" r="1.6" fill="currentColor" opacity="0.6"/>
+            <circle cx="76" cy="56" r="1.6" fill="currentColor" opacity="0.6"/>
+          </svg>
+          <span class="project-thumb-label">Fleet</span>
+          <div class="project-overlay"><span class="project-overlay-btn">Ver detalhes →</span></div>
+        </div>
+        <div class="project-content">
+          <p class="project-status status--prod">● Em produção</p>
+          <h3 class="project-name">Sistema de Logística de Frota</h3>
+          <p class="project-desc">Primeiro sistema em produção interna. Controle e rastreamento de frota com relatórios operacionais em tempo real.</p>
+          <div class="tag-list">
+            <span class="tag">Express</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">FastAPI</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal data-cursor>
+        <div class="project-thumb project-thumb--beauty">
+          <svg class="project-art" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M60 46 C60 46 68 36 60 28 C52 36 60 46 60 46 Z"/>
+              <path d="M60 46 C60 46 72 42 76 32 C64 32 60 46 60 46 Z"/>
+              <path d="M60 46 C60 46 72 50 76 60 C64 60 60 46 60 46 Z"/>
+              <path d="M60 46 C60 46 68 56 60 64 C52 56 60 46 60 46 Z"/>
+              <path d="M60 46 C60 46 48 50 44 60 C56 60 60 46 60 46 Z"/>
+              <path d="M60 46 C60 46 48 42 44 32 C56 32 60 46 60 46 Z"/>
+              <path d="M60 64 L60 94" opacity="0.7"/>
+              <path d="M60 80 C54 80 50 84 48 90" opacity="0.5"/>
+              <path d="M60 86 C66 86 70 90 72 96" opacity="0.5"/>
+            </g>
+            <circle cx="60" cy="46" r="3" fill="currentColor"/>
+            <circle cx="88" cy="30" r="1.6" fill="currentColor" opacity="0.6"/>
+            <circle cx="32" cy="68" r="1.6" fill="currentColor" opacity="0.5"/>
+          </svg>
+          <span class="project-thumb-label">Amarilis</span>
+          <div class="project-overlay"><a href="https://amarilis-beaute.vercel.app" target="_blank" rel="noopener" class="project-overlay-btn" data-cursor>Ver site →</a></div>
+        </div>
+        <div class="project-content">
+          <p class="project-status status--mvp">● MVP concluído</p>
+          <h3 class="project-name">Amarilis Beauté</h3>
+          <p class="project-desc">E-commerce de cosméticos com catálogo filtrável, carrinho integrado ao WhatsApp e nova identidade visual da marca.</p>
+          <div class="tag-list">
+            <span class="tag">E-commerce</span>
+            <span class="tag">WhatsApp API</span>
+            <span class="tag">UI/UX</span>
+          </div>
+          <a href="https://amarilis-beaute.vercel.app" target="_blank" rel="noopener" class="project-link" data-cursor>amarilis-beaute.vercel.app ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── PROCESS ── -->
+  <section id="processo" class="section-process" data-screen-label="Processo">
+    <div class="process-header">
+      <p class="eyebrow">Como trabalhamos</p>
+      <h2 class="section-title">Construído com<br><em>precisão, do início.</em></h2>
+      <p class="section-body">Não entregamos templates. Cada projeto começa do zero com você — e termina quando está pronto de verdade.</p>
+    </div>
+
+    <div class="process-track" id="processTrack">
+      <div class="process-rail"><div class="process-rail-fill" id="processRailFill"></div></div>
+
+      <div class="process-step" data-reveal data-step>
+        <div class="process-dot"></div>
+        <div class="process-head">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5" stroke="#7FB5D4" stroke-width="1.3"/>
+            <line x1="15.5" y1="15.5" x2="20" y2="20" stroke="#7FB5D4" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="process-label">Fase 01</p>
+            <h3 class="process-name">Descoberta</h3>
+          </div>
+        </div>
+        <p class="process-desc">Entendemos o problema antes de pensar em solução. Uma reunião, sem compromisso.</p>
+      </div>
+
+      <div class="process-step" data-reveal data-step>
+        <div class="process-dot"></div>
+        <div class="process-head">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="8" height="8" rx="1" stroke="#7FB5D4" stroke-width="1.3"/>
+            <rect x="13" y="3" width="8" height="8" rx="1" stroke="#7FB5D4" stroke-width="1.3" opacity="0.55"/>
+            <rect x="3" y="13" width="8" height="8" rx="1" stroke="#7FB5D4" stroke-width="1.3" opacity="0.55"/>
+            <rect x="13" y="13" width="8" height="8" rx="1" stroke="#7FB5D4" stroke-width="1.3"/>
+          </svg>
+          <div>
+            <p class="process-label">Fase 02</p>
+            <h3 class="process-name">Arquitetura</h3>
+          </div>
+        </div>
+        <p class="process-desc">Definimos stack, escopo e cronograma com clareza. Nada de surpresas no meio do projeto.</p>
+      </div>
+
+      <div class="process-step" data-reveal data-step>
+        <div class="process-dot"></div>
+        <div class="process-head">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 7 L3 12 L8 17" stroke="#7FB5D4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 7 L21 12 L16 17" stroke="#7FB5D4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="13" y1="5" x2="11" y2="19" stroke="#7FB5D4" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="process-label">Fase 03</p>
+            <h3 class="process-name">Build &amp; Iterate</h3>
+          </div>
+        </div>
+        <p class="process-desc">Desenvolvemos em ciclos curtos com entregas visíveis. Você acompanha tudo em tempo real.</p>
+      </div>
+
+      <div class="process-step" data-reveal data-step>
+        <div class="process-dot"></div>
+        <div class="process-head">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3 C16 6 17 11 16 16 L8 16 C7 11 8 6 12 3 Z" stroke="#7FB5D4" stroke-width="1.3" stroke-linejoin="round"/>
+            <circle cx="12" cy="10" r="2" stroke="#7FB5D4" stroke-width="1.3"/>
+            <path d="M8 16 L5 20 M16 16 L19 20" stroke="#7FB5D4" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="process-label">Fase 04</p>
+            <h3 class="process-name">Ship &amp; Grow</h3>
+          </div>
+        </div>
+        <p class="process-desc">Deploy com qualidade. E suporte pós-lançamento para garantir que o produto cresce com você.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECH STACK MARQUEE ── -->
+  <section class="section-marquee" aria-label="Stack tecnológico">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="marquee-item">Node.js</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Express</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Python</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">FastAPI</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Next.js</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">TailwindCSS</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">PostgreSQL</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">SQLite</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Prisma</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">WhatsApp API</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">React</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">TypeScript</span><span class="marquee-sep">·</span>
+      </div>
+      <div class="marquee-track" aria-hidden="true">
+        <span class="marquee-item">Node.js</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Express</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Python</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">FastAPI</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Next.js</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">TailwindCSS</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">PostgreSQL</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">SQLite</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">Prisma</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">WhatsApp API</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">React</span><span class="marquee-sep">·</span>
+        <span class="marquee-item">TypeScript</span><span class="marquee-sep">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contato" class="section-contact" data-screen-label="Contato">
+    <div class="section-header section-header--center" data-reveal>
+      <p class="eyebrow">Contato</p>
+      <h2 class="section-title">Vamos <em>construir juntos.</em></h2>
+      <p class="section-body">Tem um projeto em mente? Uma dor sem solução? Manda uma mensagem — respondemos em menos de 24h.</p>
+    </div>
+
+    <div class="contact-layout">
+      <aside class="contact-aside" data-reveal>
+        <div class="founder">
+          <svg class="founder-avatar" viewBox="0 0 88 88" aria-hidden="true">
+            <circle cx="44" cy="44" r="42" fill="none" stroke="#7FB5D4" stroke-width="1"/>
+            <circle cx="44" cy="44" r="36" fill="rgba(127,181,212,0.06)"/>
+            <text x="44" y="44" text-anchor="middle" dominant-baseline="central" font-family="'Cormorant Garamond', serif" font-style="italic" font-weight="400" font-size="34" fill="#E8F0F7">VH</text>
+          </svg>
+          <div>
+            <p class="founder-name">Victor Hugo</p>
+            <p class="founder-role">Founder · Full-stack dev</p>
+          </div>
+        </div>
+
+        <blockquote class="founder-quote">
+          “Não entrego projetos.<br>Entrego sistemas que funcionam.”
+        </blockquote>
+
+        <div class="social-links">
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener" aria-label="GitHub" data-cursor>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 1.5a8.5 8.5 0 0 0-2.69 16.57c.43.08.58-.18.58-.41v-1.46c-2.36.51-2.86-1.14-2.86-1.14-.39-.98-.94-1.24-.94-1.24-.77-.53.06-.52.06-.52.85.06 1.3.88 1.3.88.76 1.3 1.99.92 2.47.7.08-.55.3-.92.54-1.13-1.88-.21-3.86-.94-3.86-4.19 0-.92.33-1.68.87-2.27-.09-.21-.38-1.07.08-2.24 0 0 .71-.23 2.33.87a8.1 8.1 0 0 1 4.24 0c1.62-1.1 2.33-.87 2.33-.87.46 1.17.17 2.03.08 2.24.54.59.87 1.35.87 2.27 0 3.26-1.98 3.98-3.87 4.19.31.26.58.78.58 1.57v2.33c0 .23.15.5.59.41A8.5 8.5 0 0 0 10 1.5Z" fill="currentColor"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="1.5" y="1.5" width="17" height="17" rx="2.5" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="5.5" y1="8" x2="5.5" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="5.5" cy="5.5" r="1" fill="currentColor"/>
+              <path d="M9 14.5V8m0 2c.4-1.3 1.6-2 2.8-2 1.5 0 2.7 1 2.7 3v3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </aside>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name">Nome</label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Seu nome completo" required />
+          <span class="form-error" id="nameError"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required />
+          <span class="form-error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Sobre o projeto</label>
+          <textarea id="message" name="message" class="form-input" rows="4" placeholder="Conte brevemente o que você precisa construir..." required></textarea>
+          <span class="form-error" id="messageError"></span>
+        </div>
+        <button type="submit" class="btn-primary btn-full" data-cursor>
+          <span class="btn-text">Enviar mensagem</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <p class="form-success" id="formSuccess" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <p class="contact-label">E-mail</p>
+        <a href="mailto:victor@snowdrop.io" class="contact-val" data-cursor>victor@snowdrop.io</a>
+      </div>
+      <div class="contact-item">
+        <p class="contact-label">Localização</p>
+        <p class="contact-val">Manaus, BR</p>
+      </div>
+      <div class="contact-item">
+        <p class="contact-label">Disponibilidade</p>
+        <p class="contact-val">Aberto a projetos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Snowdrop Studio. Todos os direitos reservados.</span>
+      <span class="footer-tagline">Build · Ship · Grow</span>
+      <span class="footer-logo">Snow<span>drop</span></span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/flakes.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/form.js"></script>
+
+</body>
+</html>
