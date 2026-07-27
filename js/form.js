@@ -4,6 +4,8 @@
   const form    = document.getElementById('contactForm');
   if (!form) return;
 
+  const CONTACT_EMAIL = 'snowdropage@gmail.com';
+
   const fields = {
     name:    { input: document.getElementById('name'),    error: document.getElementById('nameError') },
     email:   { input: document.getElementById('email'),   error: document.getElementById('emailError') },
@@ -72,19 +74,33 @@
 
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
-    btn.querySelector('.btn-text').textContent = 'Enviando...';
+    btn.querySelector('.btn-text').textContent = 'Abrindo e-mail...';
 
-    // TODO: Replace with your real API endpoint (e.g. Formspree, EmailJS, custom backend)
-    // fetch('/api/contact', { method: 'POST', body: new FormData(form) })
-    //   .then(res => res.json())
-    //   .then(() => { ... })
+    // Sem backend próprio: abre o cliente de e-mail do visitante já endereçado
+    // para CONTACT_EMAIL, com os dados preenchidos. Para enviar via servidor
+    // (Formspree, EmailJS, backend próprio), troque este bloco por um fetch().
+    const name    = fields.name.input.value.trim();
+    const email   = fields.email.input.value.trim();
+    const message = fields.message.input.value.trim();
 
-    // Simulated response for now (remove when backend is connected)
+    const subject = 'Novo contato via site — ' + name;
+    const body =
+      'Nome: ' + name + '\n' +
+      'E-mail: ' + email + '\n\n' +
+      message;
+
+    const mailtoUrl =
+      'mailto:' + CONTACT_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailtoUrl;
+
     setTimeout(function () {
       form.reset();
       btn.disabled = false;
       btn.querySelector('.btn-text').textContent = 'Enviar mensagem';
-      successMsg.textContent = 'Mensagem enviada! Respondemos em até 24h.';
-    }, 1200);
+      successMsg.textContent = 'Seu cliente de e-mail foi aberto com a mensagem pronta para ' + CONTACT_EMAIL + '.';
+    }, 600);
   });
 })();

@@ -159,4 +159,4 @@ fetch('/api/contact', {
 ---
 
 **Snowdrop Studio** · Build · Ship · Grow
-victor@snowdrop.io · Manaus, BR
+snowdropage@gmail.com · Manaus, BR
