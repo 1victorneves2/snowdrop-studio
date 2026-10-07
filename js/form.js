@@ -1,30 +1,39 @@
-// js/form.js — Contact form validation and submission handler
+// js/form.js — Contact form validation and real submission handler
 
 (function () {
-  const form    = document.getElementById('contactForm');
+  const form = document.getElementById('contactForm');
   if (!form) return;
 
-  const CONTACT_EMAIL = 'snowdropage@gmail.com';
-
   const fields = {
-    name:    { input: document.getElementById('name'),    error: document.getElementById('nameError') },
-    email:   { input: document.getElementById('email'),   error: document.getElementById('emailError') },
-    message: { input: document.getElementById('message'), error: document.getElementById('messageError') },
+    name: {
+      input: document.getElementById('name'),
+      error: document.getElementById('nameError'),
+    },
+    email: {
+      input: document.getElementById('email'),
+      error: document.getElementById('emailError'),
+    },
+    message: {
+      input: document.getElementById('message'),
+      error: document.getElementById('messageError'),
+    },
   };
 
   const successMsg = document.getElementById('formSuccess');
 
-  function validateEmail(val) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  function validateEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
   function setError(field, message) {
     field.input.classList.add('error');
+    field.input.setAttribute('aria-invalid', 'true');
     field.error.textContent = message;
   }
 
   function clearError(field) {
     field.input.classList.remove('error');
+    field.input.removeAttribute('aria-invalid');
     field.error.textContent = '';
   }
 
@@ -58,49 +67,61 @@
     return valid;
   }
 
-  // Live clear on input
   Object.values(fields).forEach(function (field) {
     field.input.addEventListener('input', function () {
       clearError(field);
+      successMsg.textContent = '';
     });
   });
 
-  // Submit
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
     successMsg.textContent = '';
+    successMsg.classList.remove('is-error');
 
     if (!validate()) return;
 
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.querySelector('.btn-text').textContent = 'Abrindo e-mail...';
+    const button = form.querySelector('button[type="submit"]');
+    const buttonText = button.querySelector('.btn-text');
 
-    // Sem backend próprio: abre o cliente de e-mail do visitante já endereçado
-    // para CONTACT_EMAIL, com os dados preenchidos. Para enviar via servidor
-    // (Formspree, EmailJS, backend próprio), troque este bloco por um fetch().
-    const name    = fields.name.input.value.trim();
-    const email   = fields.email.input.value.trim();
-    const message = fields.message.input.value.trim();
+    button.disabled = true;
+    buttonText.textContent = 'Enviando...';
 
-    const subject = 'Novo contato via site — ' + name;
-    const body =
-      'Nome: ' + name + '\n' +
-      'E-mail: ' + email + '\n\n' +
-      message;
+    const payload = {
+      name: fields.name.input.value.trim(),
+      email: fields.email.input.value.trim(),
+      message: fields.message.input.value.trim(),
+    };
 
-    const mailtoUrl =
-      'mailto:' + CONTACT_EMAIL +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
-    window.location.href = mailtoUrl;
+      const data = await response.json().catch(function () {
+        return {};
+      });
 
-    setTimeout(function () {
+      if (!response.ok) {
+        throw new Error(data.error || 'Não foi possível enviar sua mensagem.');
+      }
+
       form.reset();
-      btn.disabled = false;
-      btn.querySelector('.btn-text').textContent = 'Enviar mensagem';
-      successMsg.textContent = 'Seu cliente de e-mail foi aberto com a mensagem pronta para ' + CONTACT_EMAIL + '.';
-    }, 600);
+      successMsg.textContent = 'Mensagem enviada. A Snowdrop entra em contato com você em breve.';
+    } catch (error) {
+      successMsg.classList.add('is-error');
+      successMsg.textContent =
+        error && error.message
+          ? error.message
+          : 'Não foi possível enviar sua mensagem. Tente novamente.';
+    } finally {
+      button.disabled = false;
+      buttonText.textContent = 'Enviar mensagem';
+    }
   });
 })();
